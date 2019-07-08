@@ -3,11 +3,11 @@ require 'json'
 require 'pry'
 
 def show_books
-	f = File.open("books.txt")
-  response_hash = JSON.parse(f.read)
+	f = File.open("../data/books.txt")
+  	response_hash = JSON.parse(f.read)
 
-puts "Here are the books:"
-  response_hash.each do |book|
+	puts "Here are the books:"
+  	response_hash.each do |book|
    # puts " " + book["name"].to_s
   	puts " " + book["name"]
   end
@@ -21,7 +21,6 @@ def read_characters_to_file
 
 	i = 1
 	while i <= 43 do
-
 		filename = "characters_" + i.to_s + ".txt"
 		urlstr = 'https://www.anapioficeandfire.com/api/characters?page=' + i.to_s + '&pageSize=50'
 		File.write(filename, RestClient.get(urlstr))
@@ -31,9 +30,9 @@ def read_characters_to_file
 	
 end
 
-def show_characters
+def show_characters(page_num)
 
-	f = File.open("characters_40.txt")
+	f = File.open("../data/characters_" + page_num.to_s + ".txt")
   	response_hash = JSON.parse(f.read)
   	f.close
 
@@ -48,4 +47,8 @@ end
 #read_books_to_file
 show_books
 #read_characters_to_file
-show_characters
+i = 1
+5.times do 
+	show_characters(i)
+	i += 1
+end
