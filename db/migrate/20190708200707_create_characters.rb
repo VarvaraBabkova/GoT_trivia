@@ -8,7 +8,7 @@ class CreateCharacters < ActiveRecord::Migration[5.2]
       t.string :born
       t.string :died
       # t.string :titles
-      # t.string :aliases
+      t.string :aliases
       t.string :father
       t.string :mother
       t.string :spouse
