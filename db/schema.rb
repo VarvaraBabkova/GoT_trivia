@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(version: 2019_07_08_200724) do
     t.string "culture"
     t.string "born"
     t.string "died"
+    t.string "aliases"
     t.string "father"
     t.string "mother"
     t.string "spouse"
