@@ -15,34 +15,34 @@ class Character < ActiveRecord::Base
     	return "Male"
     end
 
-	def self.does_characters_has_mother()
-		ar_of_ids = []
+	def self.characters_that_has_mothers()
+		ar_of_ids = [200, 300]
     	return ar_of_ids
     end
 
-    def self.does_characters_has_father()
-		ar_of_ids = []
+    def self.characters_that_has_fathers()
+		ar_of_ids = [200, 300]
     	return ar_of_ids
     end
 
-    def self.does_characters_has_spouse()
-		ar_of_ids = []
+    def self.characters_that_has_spouses()
+		ar_of_ids = [200, 300]
     	return ar_of_ids
     end
 
-    def self.characters_mother_name(id)
+    def self.character_mother_name(id)
     	mother_name = "Mother nature"
     	return mother_name
     end
 
-     def self.characters_father_name(id)
+     def self.character_father_name(id)
      	father_name = "God or something"
     	return father_name
     end
 
-     def self.characters_spouse_name(id)
-     	spouse = "Second half one in a million"
-    	return spouse
+     def self.character_spouse_name(id)
+     	spouse_name = "Second half one in a million"
+    	return spouse_name
     end
 
 end
