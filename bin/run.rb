@@ -29,16 +29,27 @@ def make_a_range(pages, number_of_choices, step = 100)
     return ar
 end
 
-rand_book = Book.number_of_pages(rand(10) + 1)
 
+rand_book = rand(10) + 1
 def q1(prompt, rand_book)
-    ar = make_a_range(rand_book, 5, 20)
-    prompt.select("How many pages are in book #{rand_book}") do |menu|
+    ar = make_a_range(Book.number_of_pages(rand_book), 5, 20)
+    answer1 = prompt.select("How many pages are in book #{Book.book_name(rand_book)}") do |menu|
         menu.choices ar
+    end
+    if answer1.split[0].to_i <= Book.number_of_pages(rand_book) and answer1.split[2].to_i > Book.number_of_pages(rand_book)
+        puts "Correct " + Book.number_of_pages(rand_book).to_s
+    else
+        puts "Your answer was not correct. Here is the right answer " + Book.number_of_pages(rand_book).to_s
     end
 end
 
 
+# how_many_books_character_appeares_in(id)
+# def q2(prompt)
+#     ar2 = 
+#     answer2 = prompt.select("How many books does this character appear in")
+# end
 
 
+# Call questions here
 q1(prompt, rand_book)
