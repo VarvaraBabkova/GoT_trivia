@@ -25,9 +25,11 @@ ActiveRecord::Base.logger.level = 1
 
 
 i = 0
-10.times do
+12.times do
 	#all ten book pages 
-	puts Book.number_of_pages(i += 1)
+	puts Book.number_of_pages(i)
+	puts Book.book_name(i)
+	i += 1
 
 	#random character id
 	random_id = rand(Character.last.id - Character.first.id) + Character.first.id
