@@ -3,6 +3,18 @@ require 'tty-prompt'
 ActiveRecord::Base.logger.level = 1
 prompt = TTY::Prompt.new
 
+def welcome
+    puts "W E L C O M E   T O"
+    font = TTY::Font.new(:standard)
+    pastel = Pastel.new
+    puts pastel.yellow(font.write("GOT Trivia"))
+    #puts font.write("GOT Trivia)
+    puts
+
+
+
+end
+
 def make_a_range(pages, number_of_choices, step = 100)
     r = rand(number_of_choices) + 1
     pages_floor = (pages/step).floor
@@ -51,5 +63,6 @@ end
 # end
 
 
-# Call questions here
+welcome
+
 q1(prompt, rand_book)
