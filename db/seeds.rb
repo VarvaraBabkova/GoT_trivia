@@ -15,9 +15,7 @@ def fill_characters_from_file_one_page(page_num)
 
   		#filling joint table------------------------------------
 
-  		#id_arr = []
   		ch["books"].each do |b|
-  			#id_arr << Book.find_by(url: b).id if Book.find_by(url: b)
   			if Book.find_by(url: b)	
   				Appearance.create(book_id: Book.find_by(url: b).id, character_id:character.id)
   			end
@@ -59,4 +57,6 @@ Book.destroy_all
 
 fill_books_from_file
 fill_characters_from_file_all_pages 
+
+
 #fill_characters_from_file_one_page(1)
