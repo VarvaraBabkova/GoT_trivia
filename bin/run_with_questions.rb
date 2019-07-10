@@ -1,19 +1,24 @@
 require_relative '../config/environment'
 require 'tty-prompt'
-
+ActiveRecord::Base.logger.level = 1
 
 
 def main
 
-	ActiveRecord::Base.logger.level = 1
 	prompt = TTY::Prompt.new
+
+	draw_dragon	
+	cursor = TTY::Cursor
+	#print cursor.up(5) + cursor.forward(2)
 
 
 	welcome
 
+	
+
 	while true
 
-		number_of_questions_in_quiz = 15
+		number_of_questions_in_quiz = 10
 		initial_account = 10
 		questions_type = [BookQuestion, CharacterAppearanceQuestion, CharacterCultureQuestion, CharacterGenderQuestion]
 		account = initial_account
@@ -35,7 +40,6 @@ def main
 			end
 			bet = make_a_bet(prompt, account)
 			
-
 			account -= bet
 
 			answers_array << q.ask_question(prompt)
@@ -55,7 +59,7 @@ def main
 
 		puts "Your answered " + answers_array.count(true).to_s + " times correctly out of " + number_of_questions_in_quiz.to_s
 		
- 		answer = prompt.select("Do you wanna try another time?", %w(Yes No))
+ 		answer = prompt.select("Do you wanna try another time?", %w(No Yes))
 
  		if answer == "No"
    			puts "Goodbye!"
