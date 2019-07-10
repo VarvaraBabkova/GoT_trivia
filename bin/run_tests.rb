@@ -65,6 +65,8 @@ puts "total spouses " + s_ids.size.to_s
 
 #info of random characters mother father or spouses 
 10.times do 
+	puts Character.all_cultures
+
 	r_c = rand(c_ids.size) 
 	puts Character.name_by_id(c_ids[r_c]) + " culture: " + Character.which_culture_character_is(c_ids[r_c])
 
