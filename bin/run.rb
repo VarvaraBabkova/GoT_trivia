@@ -20,9 +20,3 @@ end
 
 
 
-
-welcome
-q1(prompt)
-q2(prompt)
-q3(prompt)
-# q4(prompt)
