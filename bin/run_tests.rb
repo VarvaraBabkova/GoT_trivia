@@ -33,7 +33,7 @@ i = 0
 	i += 1
 
 	#random character id
-	random_id = rand(Character.last.id - Character.first.id) + Character.first.id)
+	random_id = rand((Character.last.id - Character.first.id) + Character.first.id)
 	
 
 	#info about this random id
