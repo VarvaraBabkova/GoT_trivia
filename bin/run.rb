@@ -20,6 +20,7 @@ end
 
 
 
+
 def make_a_range(pages, number_of_choices, step = 100)
     r = rand(number_of_choices) + 1
     pages_floor = (pages/step).floor
@@ -59,6 +60,7 @@ def make_a_range(pages, number_of_choices, step = 100)
             puts "Your answer was not correct. Here is the right answer " + Book.number_of_pages(rand_book).to_s
             wrong_answer
         end
+
     end
     
     def clear_log
@@ -77,13 +79,18 @@ def make_a_range(pages, number_of_choices, step = 100)
         end
     end
 
-# how_many_books_character_appeares_in(id)
-# def q2(prompt)
-#     ar2 = 
-#     answer2 = prompt.select("How many books does this character appear in")
-# end
 
+random_id = rand(Character.last.id - Character.first.id) + Character.first.id
+def q2(prompt, random_id)
+    answer2 = prompt.select("How many books does #{Character.name_by_id(random_id)} appear in?", [Character.how_many_books_character_appeares_in(random_id), 4, 6, 8])
+    if answer2 == Character.how_many_books_character_appeares_in(random_id)
+        puts "Correct " + Character.how_many_books_character_appeares_in(random_id).to_s
+    else
+        puts "Your answer was not correct. Here is the right answer " + Character.how_many_books_character_appeares_in(random_id).to_s
+    end
+end
 
 welcome
 
 q1($prompt, rand_book)
+
