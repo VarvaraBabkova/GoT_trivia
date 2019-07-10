@@ -17,6 +17,6 @@ def q3(prompt)
     if answer3 == Character.which_culture_character_is(random_id2)
         puts "Correct " + Character.which_culture_character_is(random_id2)
     else
-        puts "Yours answer was not correct. Here is the right answer "+ Character.which_culture_character_is(random_id2)
+        puts "Your answer was not correct. Here is the right answer "+ Character.which_culture_character_is(random_id2)
     end
 end

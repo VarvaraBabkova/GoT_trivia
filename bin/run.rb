@@ -1,7 +1,7 @@
 require_relative '../config/environment'
 require 'tty-prompt'
 ActiveRecord::Base.logger.level = 1
-$prompt = TTY::Prompt.new
+prompt = TTY::Prompt.new
 $pastel = Pastel.new
 
 
@@ -28,12 +28,12 @@ end
 
 
 welcome
-q1($prompt)
-q2($prompt)
-q3($prompt)
-# q4(prompt)
+
+q1(prompt)
+q2(prompt)
+q3(prompt)
+q4(prompt)
+
+
 
     
-
-
-
