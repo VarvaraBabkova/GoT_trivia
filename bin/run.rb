@@ -42,8 +42,10 @@ def make_a_range(pages, number_of_choices, step = 100)
 end
 
 
-rand_book = rand(10) + 1
-def q1(prompt, rand_book)
+
+
+def q1(prompt)
+    rand_book = rand(10) + 1
     ar = make_a_range(Book.number_of_pages(rand_book), 5, 20)
     answer1 = prompt.select("How many pages are in book #{Book.book_name(rand_book)}?") do |menu|
         menu.choices ar
@@ -70,7 +72,21 @@ end
 def q3(prompt)
     c_ids = Character.characters_that_has_culture
     random_id2 = c_ids[rand(c_ids.length)]
-    answer3 = prompt.select("Which culture/background does #{Character.name_by_id(random_id2)} belong to?", ["Valyrian", "Westerman", Character.which_culture_character_is(random_id2).to_s, "Dothraki"])
+    correct_ans = Character.which_culture_character_is(random_id2)
+
+    ans = [correct_ans]
+    num = 0
+    while num < 4
+        i=rand(Character.all_cultures.length)
+        if !ans.include? (Character.all_cultures[i])
+            ans << Character.all_cultures[i]
+            num += 1
+        end
+    end
+
+    # binding.pry
+
+    answer3 = prompt.select("Which culture/background does #{Character.name_by_id(random_id2)} belong to?", ans.shuffle)
     if answer3 == Character.which_culture_character_is(random_id2)
         puts "Correct " + Character.which_culture_character_is(random_id2)
     else
@@ -81,6 +97,6 @@ end
 
 
 welcome
-q1(prompt, rand_book)
+q1(prompt)
 q2(prompt)
 q3(prompt)
