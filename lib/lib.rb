@@ -2,7 +2,7 @@ def welcome
     puts "W E L C O M E   T O"
     font = TTY::Font.new(:standard)
     pastel = Pastel.new
-    puts pastel.yellow(font.write("GOT Trivia"))
+    puts pastel.yellow(font.write("GoT Trivia"))
     #puts font.write("GOT Trivia)
     puts
 
@@ -32,4 +32,9 @@ def make_a_range(pages, number_of_choices, step = 100)
         i += 1
     end
     return ar
+end
+
+def make_a_bet(prompt, account)
+
+    return 1
 end
