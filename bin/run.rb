@@ -8,11 +8,10 @@ def welcome
     font = TTY::Font.new(:standard)
     pastel = Pastel.new
     puts pastel.yellow(font.write("GOT Trivia"))
-    #puts font.write("GOT Trivia)
-    puts
+end
 
-
-
+def clear_logs
+    system "clear"
 end
 
 def make_a_range(pages, number_of_choices, step = 100)
@@ -45,7 +44,7 @@ end
 rand_book = rand(10) + 1
 def q1(prompt, rand_book)
     ar = make_a_range(Book.number_of_pages(rand_book), 5, 20)
-    answer1 = prompt.select("How many pages are in book #{Book.book_name(rand_book)}") do |menu|
+    answer1 = prompt.select("How many pages are in book #{Book.book_name(rand_book)}?") do |menu|
         menu.choices ar
     end
     if answer1.split[0].to_i <= Book.number_of_pages(rand_book) and answer1.split[2].to_i > Book.number_of_pages(rand_book)
@@ -56,13 +55,17 @@ def q1(prompt, rand_book)
 end
 
 
-# how_many_books_character_appeares_in(id)
-# def q2(prompt)
-#     ar2 = 
-#     answer2 = prompt.select("How many books does this character appear in")
-# end
 
+random_id = rand(Character.last.id - Character.first.id) + Character.first.id
+def q2(prompt, random_id)
+    answer2 = prompt.select("How many books does #{Character.name_by_id(random_id)} appear in?", [Character.how_many_books_character_appeares_in(random_id), 4, 6, 8])
+    if answer2 == Character.how_many_books_character_appeares_in(random_id)
+        puts "Correct " + Character.how_many_books_character_appeares_in(random_id).to_s
+    else
+        puts "Your answer was not correct. Here is the right answer " + Character.how_many_books_character_appeares_in(random_id).to_s
+    end
+end
 
 welcome
-
 q1(prompt, rand_book)
+q2(prompt, random_id)
