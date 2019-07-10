@@ -18,11 +18,11 @@ class CharacterCultureQuestion < Question
 
 	    answer3 = prompt.select("Which culture/background does #{Character.name_by_id(random_id2)} belong to?", ans.shuffle)
 	    if answer3 == Character.which_culture_character_is(random_id2)
-	        puts "Correct " + Character.which_culture_character_is(random_id2)
+	        correct_answer("Correct " + Character.which_culture_character_is(random_id2))
 	        return true
 
 	    else
-	        puts "Yours answer was not correct. Here is the right answer "+ Character.which_culture_character_is(random_id2)
+	        not_correct_answer ("Yours answer was not correct. Here is the right answer "+ Character.which_culture_character_is(random_id2))
 	        return false
 
 	    end

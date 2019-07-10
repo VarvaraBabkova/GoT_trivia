@@ -15,7 +15,7 @@ def main
 
 		number_of_questions_in_quiz = 15
 		initial_account = 10
-		questions_type = [BookQuestion, CharacterAppearanceQuestion, CharacterCultureQuestion]
+		questions_type = [BookQuestion, CharacterAppearanceQuestion, CharacterCultureQuestion, CharacterGenderQuestion]
 		account = initial_account
 
 		questions_array = []

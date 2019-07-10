@@ -12,10 +12,10 @@ class BookQuestion < Question
 	    end
 
 	    if answer1.split[0].to_i <= Book.number_of_pages(rand_book) and answer1.split[2].to_i > Book.number_of_pages(rand_book)
-	        puts "Correct " + Book.number_of_pages(rand_book).to_s
+	        correct_answer( "Correct " + Book.number_of_pages(rand_book).to_s)
 	        return true
 	    else
-	        puts "Your answer was not correct. Here is the right answer " + Book.number_of_pages(rand_book).to_s
+	        not_correct_answer ("Your answer was not correct. Here is the right answer " + Book.number_of_pages(rand_book).to_s)
 	        return false
 	 	end
 	end

@@ -17,10 +17,10 @@ class CharacterAppearanceQuestion < Question
 
 	    answer2 = prompt.select("How many books does #{Character.name_by_id(random_id)} appear in?", ans.shuffle)
 	    if answer2 == Character.how_many_books_character_appeares_in(random_id)
-	        puts "Correct " + Character.how_many_books_character_appeares_in(random_id).to_s
+	        correct_answer("Correct " + Character.how_many_books_character_appeares_in(random_id).to_s)
 	        return true
 	    else
-	        puts "Your answer was not correct. Here is the right answer " + Character.how_many_books_character_appeares_in(random_id).to_s
+	        not_correct_answer("Your answer was not correct. Here is the right answer " + Character.how_many_books_character_appeares_in(random_id).to_s)
 	        return false
 
 	    end
