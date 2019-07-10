@@ -8,6 +8,7 @@ def welcome
     font = TTY::Font.new(:standard)
     pastel = Pastel.new
     puts pastel.yellow(font.write("GOT Trivia"))
+  
 end
 
 def clear_logs
@@ -67,5 +68,6 @@ def q2(prompt, random_id)
 end
 
 welcome
+
 q1(prompt, rand_book)
 q2(prompt, random_id)
