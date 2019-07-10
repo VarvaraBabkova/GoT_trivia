@@ -13,6 +13,7 @@ ActiveRecord::Base.logger.level = 1
 # Character.which_culture_character_is(random_id)				takes character id, returns his culture
 # Character.which_gender_character_is(random_id)				takes character id, returns his gender
 
+# Character.characters_that_has_culture  returns array of ids of characters with info about culture
 # Character.characters_that_has_mothers  returns array of ids of characters with info about mother
 # Character.characters_that_has_fathers  returns array of ids of characters with info about father
 # Character.characters_that_has_spouses	 returns array of ids of characters with info about spouse
@@ -44,7 +45,11 @@ i = 0
 
 end
 
-#arrays of characters with info of mothers fathers and spouses
+#arrays of characters with info of mothers fathers and spouses and cultures
+c_ids = Character.characters_that_has_culture
+puts c_ids.inspect
+puts "total cultured " + c_ids.size.to_s
+
 m_ids = Character.characters_that_has_mothers
 puts m_ids.inspect
 puts "total mothers " + m_ids.size.to_s
@@ -59,6 +64,9 @@ puts "total spouses " + s_ids.size.to_s
 
 #info of random characters mother father or spouses 
 10.times do 
+	r_c = rand(c_ids.size) 
+	puts Character.name_by_id(c_ids[r_c]) + " culture: " + Character.which_culture_character_is(c_ids[r_c])
+
 	r_m = rand(m_ids.size) 
 	puts Character.name_by_id(m_ids[r_m]) + " mother: " + Character.character_mother_name(m_ids[r_m])
 

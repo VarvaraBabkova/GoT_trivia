@@ -27,6 +27,14 @@ class Character < ActiveRecord::Base
     	return Character.find(id).gender       
     end
 
+    def self.characters_that_has_culture()
+        ar_of_ids = []
+        Character.where("culture != ''").find_each do |c|
+            ar_of_ids << c.id
+        end
+        return ar_of_ids
+    end
+
 	def self.characters_that_has_mothers()
 		ar_of_ids = []
 		Character.where("mother != ''").find_each do |c|
