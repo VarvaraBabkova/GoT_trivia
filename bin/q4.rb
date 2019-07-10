@@ -1,7 +1,4 @@
-require_relative '../config/environment'
-require 'tty-prompt'
-ActiveRecord::Base.logger.level = 1
-prompt = TTY::Prompt.new
+
 
 def q4(prompt)
     random_id = rand(Character.last.id - Character.first.id) + Character.first.id
