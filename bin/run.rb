@@ -9,7 +9,7 @@ $pastel = Pastel.new
 def welcome
     puts "W E L C O M E   T O"
     font = TTY::Font.new(:standard)
-    puts $pastel.yellow(font.write("GOT Trivia"))
+    puts $pastel.yellow(font.write("GoT Trivia"))
     puts $pastel.red("When you play the game of thrones, you win or you die. There is no middle ground.")
 
 end
@@ -24,13 +24,16 @@ def wrong_answer
             sleep(10)
             exit!
         end
-   end
+end
 
 
 welcome
+
 q1(prompt)
 q2(prompt)
 q3(prompt)
 q4(prompt)
+
+
 
     

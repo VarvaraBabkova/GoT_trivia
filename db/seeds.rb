@@ -8,20 +8,22 @@ def fill_characters_from_file_one_page(page_num)
 
 	puts "Here are the characters:"
   	response_hash.each do |ch|
-  		character = Character.create(url: ch["url"], name: ch["name"], gender: ch["gender"], 
-  			culture: ch["culture"], born: ch["born"], died: ch["died"], 
-  			mother: ch["mother"], father: ch["father"], spouse:ch["spouse"])
+  		if ch["name"] != ""
+	  		character = Character.create(url: ch["url"], name: ch["name"], gender: ch["gender"], 
+	  			culture: ch["culture"], born: ch["born"], died: ch["died"], 
+	  			mother: ch["mother"], father: ch["father"], spouse:ch["spouse"])
 
 
-  		#filling joint table------------------------------------
+	  		#filling joint table------------------------------------
 
-  		ch["books"].each do |b|
-  			if Book.find_by(url: b)	
-  				Appearance.create(book_id: Book.find_by(url: b).id, character_id:character.id)
-  			end
+	  		ch["books"].each do |b|
+	  			if Book.find_by(url: b)	
+	  				Appearance.create(book_id: Book.find_by(url: b).id, character_id:character.id)
+	  			end
+	  		end
   		end
- 	 end
-end
+ 	 end #do
+end# def
 
 def fill_characters_from_file_all_pages
 	i = 1

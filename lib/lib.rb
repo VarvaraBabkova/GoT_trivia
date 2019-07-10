@@ -35,6 +35,13 @@ def make_a_range(pages, number_of_choices, step = 100)
 end
 
 def make_a_bet(prompt, account)
+    puts
+    if (account > 0)
+        puts "You have " + account.to_s + " Gold Dragon coins. Choose your bet!"
+    else
+        return -1 
+    end
 
-    return 1
+    return prompt.slider("Your bet", min: 1,  max: account, step: 1, default: 1, format: "|:slider| %d")
+     
 end
