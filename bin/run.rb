@@ -57,8 +57,8 @@ end
 
 
 
-random_id = rand(Character.last.id - Character.first.id) + Character.first.id
-def q2(prompt, random_id)
+def q2(prompt)
+    random_id = rand(Character.last.id - Character.first.id) + Character.first.id
     answer2 = prompt.select("How many books does #{Character.name_by_id(random_id)} appear in?", [Character.how_many_books_character_appeares_in(random_id), 4, 6, 8])
     if answer2 == Character.how_many_books_character_appeares_in(random_id)
         puts "Correct " + Character.how_many_books_character_appeares_in(random_id).to_s
@@ -67,7 +67,20 @@ def q2(prompt, random_id)
     end
 end
 
-welcome
+def q3(prompt)
+    c_ids = Character.characters_that_has_culture
+    random_id2 = c_ids[rand(c_ids.length)]
+    answer3 = prompt.select("Which culture/background does #{Character.name_by_id(random_id2)} belong to?", ["Valyrian", "Westerman", Character.which_culture_character_is(random_id2).to_s, "Dothraki"])
+    if answer3 == Character.which_culture_character_is(random_id2)
+        puts "Correct " + Character.which_culture_character_is(random_id2)
+    else
+        puts "Yours answer was not correct. Here is the right answer "+ Character.which_culture_character_is(random_id2)
+    end
+end
 
+
+
+welcome
 q1(prompt, rand_book)
-q2(prompt, random_id)
+q2(prompt)
+q3(prompt)
