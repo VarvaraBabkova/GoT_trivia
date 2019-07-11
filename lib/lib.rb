@@ -1,6 +1,5 @@
 def draw_dragon
 
-
     box = TTY::Box.frame(
       width: TTY::Screen.width ,
       height: 20,
@@ -30,13 +29,36 @@ def draw_dragon
                                    .(v(VVV)___(VVV)v).                                   "                                                  
     end
     print box
+  
+end
+def draw_hall_of_fame (ar)
+  str = ar[0].to_s + ar[1].to_s + ar[2].to_s
+  box = TTY::Box.frame(
+      width: 30 ,
+      height: 11,
+      align: :center,
+      padding: 3,
+      title: {top_center: 'Hall Of Fame'},
+      style: {
+          fg: :bright_red,
+          bg: :black,
+          border: {
+            fg: :bright_blue,
+            bg: :black
+          }
+        }
+    ) do
+    str
+
+    end
+  print box
 end
 
 def welcome
     puts "W E L C O M E   T O"
     font = TTY::Font.new(:standard)
     pastel = Pastel.new
-    puts pastel.yellow(font.write("GoT Trivia"))
+    puts pastel.yellow(font.write("GoT Trivia".center(TTY::Screen.width - 62)))
     #puts font.write("GOT Trivia)
     puts
 
@@ -100,3 +122,5 @@ def make_a_bet(prompt, account)
     return prompt.slider("Your bet", min: step_slider,  max: account, step: step_slider, default: step_slider, format: "|:slider| %d")
      
 end
+
+
