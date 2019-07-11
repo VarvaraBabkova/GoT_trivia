@@ -42,6 +42,15 @@ def welcome
 
 end
 
+def bar_init (number_of_questions_in_quiz)
+    pastel = Pastel.new
+    progress_color  = pastel.cyan("*")
+    empty_color    = pastel.white("*")
+    return  TTY::ProgressBar.new("Your progress [:bar] in the game", 
+      total: number_of_questions_in_quiz, complete: progress_color,
+      incomplete: empty_color)
+end
+
 def make_a_range(pages, number_of_choices, step = 100)
     r = rand(number_of_choices) + 1
     pages_floor = (pages/step).floor
@@ -59,8 +68,6 @@ def make_a_range(pages, number_of_choices, step = 100)
     i = 1
     number_of_choices.times do
         limit_floor = pages_floor - (r - i)*step
-
-
         limit_ceil = limit_floor + step - 1
         ar << limit_floor.to_s + " to " + limit_ceil.to_s
         i += 1
@@ -71,11 +78,25 @@ end
 def make_a_bet(prompt, account)
     puts
     if (account > 0)
-        puts "You have " + account.to_s + " Gold Dragon coins. Choose your bet!"
+        puts "You have " + account.to_s + " Gold Dragons. Choose your bet!"
     else
-        return -1 
+        return 0 
     end
 
-    return prompt.slider("Your bet", min: 1,  max: account, step: 1, default: 1, format: "|:slider| %d")
+    max_slider = account
+    step_slider = 0
+
+    #adjusting the siled width to the screen size
+    if max_slider > (TTY::Screen.width - 30)
+        while max_slider > (TTY::Screen.width - 30) do
+            step_slider += 10
+            max_slider  = account/step_slider
+            #puts step_slider.to_s + " slider " + max_slider.to_s
+        end
+    else
+        step_slider = 1
+    end
+
+    return prompt.slider("Your bet", min: step_slider,  max: account, step: step_slider, default: step_slider, format: "|:slider| %d")
      
 end
