@@ -7,7 +7,7 @@ class BookQuestion < Question
 		rand_book = rand(10) + 1
 		ar = make_a_range(Book.number_of_pages(rand_book), 5, 20)
 
-	    answer1 = prompt.select("How many pages are in book #{Book.book_name(rand_book)}") do |menu|
+	    answer1 = prompt.select("How many pages are in book: #{Book.book_name(rand_book)}") do |menu|
 	     	menu.choices ar
 	    end
 
