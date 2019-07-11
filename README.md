@@ -1,41 +1,25 @@
 # GoT_trivia
 
 #Description
+"When you play the Game of Thrones, you win or you die. There is no middle ground." - Cersei
 
-<<<<<<< HEAD
-Here we have a "Game of Thrones" Trivia game.  The basis of the game is to answer the many questions through CLI prompt.  For each question that you get correct you get points towards your GoT nerdiness score :)  At the end of the game you will get your GoT Nerdiness score
-=======
-Here we have a "Game of Thrones" Trivia game.  The basis of the game is to answer the many questions through CLI prompt.  For each question that you get correct you get points towards your GoT nerdiness score :slightly_smiling_face:  At the end of the game you will get your GoT Nerdiness score
->>>>>>> master
+Welcome! Here we have a "Game of Thrones" trivia game but dont be fooled this isn't any ordinary trivia game.  The basis of the game is to pick a wager and answer the many questions through CLI prompt correctly potentially doubling your wager.  For each question you are required to set a wager that ranges differently depending to the depth of your pocket and/or your GoT nerdiness! For correct answers you get to keep your gold dragon coins and earn your wagered amount. For incorrect answers your gold dragon coin wager is removed from your possession. The questions might have a similar basis but will be different every time around.  At the end of the game you will get to record your score to see if you won or you died!
 
-#Install Instructions
+#Install/Usage Instructions
 
 1. Navigate to the following link ->  "https://github.com/VarvaraBabkova/GoT_trivia"
 2. Press the green 'Clone or Download' button and copy the supplied link.
-<<<<<<< HEAD
 3. In your terminal type 'git clone <link>' replace <link> with the copied link from github. 
-4. Hit enter or return to run the command.
-5. Navigate over to the folder and run the ruby file 'run.rb' located inside the 'bin' folder.
-6. Follow the instructions on the CLI application and find out your GoT Nerdiness Score
+4. Navigate to the GoT_trivia directory and type "ruby bin/run_with_questions.rb" into your terminal.
+5. Follow the instructions on the CLI application and find out if you win or die!
 7. Good luck :)
-=======
-3. In your terminal type 'git clone <link>' replace <link> with the copied link from github.
-4. Hit enter or return to run the command.
-5. Navigate over to the folder and run the ruby file 'run.rb' located inside the 'bin' folder.
-6. Follow the instructions on the CLI application and find out your GoT Nerdiness Score
-7. Good luck :slightly_smiling_face:
->>>>>>> master
 
 #Contributors Guide
 
-1. Naush Khiljee
-2. Varvara Babkova
+1. Varvara Babkova
+2. Naush Khiljee
 3. Marrio Hinkle
 
 #Link to License
 
-<<<<<<< HEAD
 https://github.com/VarvaraBabkova/GoT_trivia
-=======
-https://github.com/VarvaraBabkova/GoT_trivia
->>>>>>> master
