@@ -8,3 +8,4 @@ gem "require_all"
 gem 'tty-prompt'
 gem 'tty-font'
 gem 'tty-box'
+gem 'tty-progressbar'

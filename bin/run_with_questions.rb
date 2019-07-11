@@ -8,23 +8,22 @@ def main
 	prompt = TTY::Prompt.new
 
 	draw_dragon	
-	cursor = TTY::Cursor
-	#print cursor.up(5) + cursor.forward(2)
-
 
 	welcome
-
-	
 
 	while true
 
 		number_of_questions_in_quiz = 10
 		initial_account = 10
-		questions_type = [BookQuestion, CharacterAppearanceQuestion, CharacterCultureQuestion, CharacterGenderQuestion]
+		questions_type = [BookQuestion, CharacterAppearanceQuestion, CharacterCultureQuestion, 
+			CharacterGenderQuestion, CharacterSpouseQuestion]
 		account = initial_account
 
 		questions_array = []
 		answers_array = []
+
+		bar = bar_init(number_of_questions_in_quiz)
+
 
 		#randomly forming array of questions
 		number_of_questions_in_quiz.times do |i|
@@ -34,10 +33,15 @@ def main
 		#actually asking
 		questions_array.each do |q|
 
+
 			if (account == 0) 
 				puts "You have nothing to play with!"
 				break
 			end
+
+			puts 
+			bar.advance(1)
+
 			bet = make_a_bet(prompt, account)
 			
 			account -= bet
@@ -59,7 +63,7 @@ def main
 
 		puts "Your answered " + answers_array.count(true).to_s + " times correctly out of " + number_of_questions_in_quiz.to_s
 		
- 		answer = prompt.select("Do you wanna try another time?", %w(No Yes))
+ 		answer = prompt.select("Do you wanna try another round?", %w(No Yes))
 
  		if answer == "No"
    			puts "Goodbye!"
