@@ -6,13 +6,13 @@ $pastel = Pastel.new
 
 
 
-def welcome
-    puts "W E L C O M E   T O"
-    font = TTY::Font.new(:standard)
-    puts $pastel.yellow(font.write("GoT Trivia"))
-    puts $pastel.red("When you play the game of thrones, you win or you die. There is no middle ground.")
+# def welcome
+#     puts "W E L C O M E   T O"
+#     font = TTY::Font.new(:standard)
+#     puts $pastel.yellow(font.write("GoT Trivia"))
+#     puts $pastel.red("When you play the game of thrones, you win or you die. There is no middle ground.")
 
-end
+# end
     
 def wrong_answer
         oh_no = $prompt.yes?("Your DEAD! Would you Like to play again?")
