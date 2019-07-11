@@ -10,7 +10,7 @@ Welcome! Here we have a "Game of Thrones" trivia game but dont be fooled this is
 1. Navigate to the following link ->  "https://github.com/VarvaraBabkova/GoT_trivia"
 2. Press the green 'Clone or Download' button and copy the supplied link.
 3. In your terminal type 'git clone <link>' replace <link> with the copied link from github. 
-4. Navigate to the GoT_trivia directory and type "ruby bin/run_with_questions.rb" into your terminal.
+4. Navigate to the GoT_trivia directory and type "ruby bin/run.rb" into your terminal.
 5. Follow the instructions on the CLI application and find out if you win or die!
 7. Good luck :)
 
