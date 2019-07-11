@@ -49,7 +49,8 @@ def main
 			answers_array << q.ask_question(prompt)
 
 			account += bet*2 if answers_array.last
-			puts "Your account is " + account.to_s + " now."
+			puts "Now you have " + account.to_s + " Gold Dragons."
+			sleep(2)
 		end
 
 
@@ -64,10 +65,7 @@ def main
 		puts "Your answered " + answers_array.count(true).to_s + " times correctly out of " + number_of_questions_in_quiz.to_s
 		
 		wb = WinnersBoard.new
-		#wb.win_list = ["11", "22", "33"]
-		#wb.win_list[0] = "aaa 100"
-		#puts wb.win_list.inspect
-
+		
 		i = 3
 		wb.win_list.each do |l|
 			if account >= l.split[l.split.size - 1].chomp.to_i
@@ -80,6 +78,7 @@ def main
 			puts "You rock! Put your name in the Hall of Fame: "
 			usr_name = gets.chomp
 			usr_name = "Anonymous nerd" if usr_name == "" 
+			usr_name = usr_name[0, 15] if usr_name.size > 15
 			wb.win_list.insert(i, usr_name + " " + account.to_s + "\n")
 		end
 		puts
