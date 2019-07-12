@@ -6,6 +6,8 @@ require_all 'lib'
 require_all 'app'
 require_all 'classes'
 require_all 'bin/q*'
+require_all 'music'
+
 
 
 
