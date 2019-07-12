@@ -11,6 +11,14 @@ def main
 
 	welcome
 
+	file = "music/game-of-thrones-theme-song-ringtone-30782.mp3"
+	if File.exist?(file) && ARGV.include?("-m")
+		pid = fork{ exec 'afplay', file } 
+		sleep(8.5)
+		Process.detach(pid)
+		Process.kill('SIGHUP', pid)
+	end
+
 	while true
 
 		number_of_questions_in_quiz = 10
@@ -50,7 +58,7 @@ def main
 
 			account += bet*2 if answers_array.last
 			puts "Now you have " + account.to_s + " Gold Dragons."
-			sleep(2)
+			sleep(ARGV.include?("-s")? 1:2)
 		end
 
 
@@ -76,7 +84,7 @@ def main
 
 		if i < 3 
 			puts "You rock! Put your name in the Hall of Fame: "
-			usr_name = gets.chomp
+			usr_name = $stdin.gets.chomp
 			usr_name = "Anonymous nerd" if usr_name == "" 
 			usr_name = usr_name[0, 15] if usr_name.size > 15
 			wb.win_list.insert(i, usr_name + " " + account.to_s + "\n")
@@ -91,12 +99,20 @@ def main
 
  		if answer == "No"
    			puts "Goodbye!"
+   			if File.exist?(file) && ARGV.include?("-m")
+				pid = fork{ exec 'afplay', file } 
+				sleep(8.5)
+				Process.detach(pid)
+				Process.kill('SIGHUP', pid)
+			end
    			return
  		end
 	 
 
 	end #while end
 
+
+	
 end
 
 main
